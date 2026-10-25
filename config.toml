@@ -2,7 +2,7 @@
 baseURL = "https://YOUR-SITE-NAME.netlify.app/"
 title = "My AI Knowledge Journal"
 theme = "beautifulhugo"
-languageCode = "en-us"
+language = "en-us"
 enableRobotsTXT = true
 
 [params]
