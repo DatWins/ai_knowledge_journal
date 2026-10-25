@@ -1,0 +1,38 @@
+
+baseURL = "https://YOUR-SITE-NAME.netlify.app/"
+title = "My AI Knowledge Journal"
+theme = "beautifulhugo"
+languageCode = "en-us"
+enableRobotsTXT = true
+
+[params]
+  subtitle = "Useful links, practical tips, and lessons worth keeping."
+  mainSections = ["posts"]
+  showReadingTime = false
+  showShare = false
+  showRelatedPosts = true
+  socialShare = false
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Categories"
+  url = "/categories/"
+  weight = 2
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 3
+
+[[menu.main]]
+  name = "About"
+  url = "/page/about/"
+  weight = 4
