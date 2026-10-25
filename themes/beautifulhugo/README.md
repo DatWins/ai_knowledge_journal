@@ -1,1 +1,0 @@
-Beautiful Hugo theme directory
