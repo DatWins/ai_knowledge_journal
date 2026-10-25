@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Useful Knowledge — Quick Capture</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, sans-serif;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    line-height: 1.5;
+    background: #f5f7fa;
+    color: #202938;
+  }
+  h1 { font-size: 1.8rem; margin-bottom: 4px; }
+  .intro { color: #526174; margin-top: 0; }
+  form, .result {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #dce2ea;
+    margin-top: 20px;
+  }
+  label { display: block; font-weight: 650; margin: 16px 0 6px; }
+  input, select, textarea, button {
+    font: inherit;
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #c7d0dc;
+    border-radius: 8px;
+  }
+  textarea { min-height: 90px; resize: vertical; }
+  .check { display: flex; align-items: center; gap: 10px; }
+  .check input { width: auto; }
+  button { cursor: pointer; border: 0; margin-top: 14px; }
+  .primary { background: #2458a6; color: white; font-weight: 700; }
+  .secondary { background: #e8edf5; color: #202938; }
+  #output { min-height: 230px; font-family: ui-monospace, monospace; }
+  .hint { color: #526174; font-size: .9rem; }
+</style>
+</head>
+<body>
+<h1>Useful Knowledge</h1>
+<p class="intro">Quick Capture — save a useful link or lesson.</p>
+
+<form id="captureForm">
+  <label for="title">Title *</label>
+  <input id="title" required placeholder="e.g. How to write better AI prompts">
+
+  <label for="url">Source link</label>
+  <input id="url" type="url" placeholder="https://...">
+
+  <label for="category">Category</label>
+  <select id="category">
+    <option>Best Practices</option>
+    <option>AI Tools</option>
+    <option>Writing</option>
+    <option>Research</option>
+    <option>Productivity</option>
+    <option>Technology</option>
+    <option>Learning</option>
+    <option>Other</option>
+  </select>
+
+  <label for="tags">Tags (separate with commas)</label>
+  <input id="tags" placeholder="ChatGPT, prompts, workflow">
+
+  <label for="note">My reminder (optional)</label>
+  <textarea id="note" placeholder="What should I remember about this?"></textarea>
+
+  <label class="check">
+    <input id="favorite" type="checkbox">
+    Mark as a favorite
+  </label>
+
+  <button class="primary" type="submit">Generate Markdown</button>
+</form>
+
+<section class="result">
+  <label for="output">Your Markdown note</label>
+  <textarea id="output" readonly placeholder="Your note will appear here..."></textarea>
+  <button class="primary" id="copy" type="button">Copy Markdown</button>
+  <button class="secondary" id="download" type="button">Download .md file</button>
+  <p class="hint">After generating your note, copy it into a new file under content/posts/ in your GitHub repository, then commit the change to publish it.</p>
+</section>
+
+<script>
+const form = document.getElementById('captureForm');
+const output = document.getElementById('output');
+
+function quoteYaml(value) {
+  return '"' + value.replace(/\\/g, '\\\\').replace(/"/g, '\\"')
+    .replace(/\r?\n/g, ' ') + '"';
+}
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const title = document.getElementById('title').value.trim();
+  const url = document.getElementById('url').value.trim();
+  const category = document.getElementById('category').value;
+  const tags = document.getElementById('tags').value
+    .split(',').map(tag => tag.trim()).filter(Boolean);
+  const note = document.getElementById('note').value.trim();
+  const favorite = document.getElementById('favorite').checked;
+  const date = new Date().toISOString().slice(0, 10);
+
+  let md = '---\n';
+  md += 'title: ' + quoteYaml(title) + '\n';
+  md += 'date: ' + date + '\n';
+  md += 'draft: false\n';
+  md += 'categories:\n  - ' + quoteYaml(category) + '\n';
+  md += 'tags:\n';
+  if (tags.length) {
+    tags.forEach(tag => md += '  - ' + quoteYaml(tag) + '\n');
+  } else {
+    md += '  - "Unsorted"\n';
+  }
+  if (url) md += 'link: ' + quoteYaml(url) + '\n';
+  md += 'favorite: ' + favorite + '\n';
+  md += '---\n\n';
+  if (url) md += '**Source:** [' + url + '](' + url + ')\n\n';
+  if (note) md += note + '\n';
+
+  output.value = md;
+});
+
+document.getElementById('copy').addEventListener('click', async function() {
+  if (!output.value) {
+    alert('Generate a note first.');
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(output.value);
+    alert('Markdown copied!');
+  } catch {
+    output.focus();
+    output.select();
+    alert('Press Ctrl+C to copy the selected Markdown.');
+  }
+});
+
+document.getElementById('download').addEventListener('click', function() {
+  if (!output.value) {
+    alert('Generate a note first.');
+    return;
+  }
+  const title = document.getElementById('title').value.trim()
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const blob = new Blob([output.value], {type: 'text/markdown;charset=utf-8'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = (title || 'knowledge-note') + '.md';
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+</script>
+</body>
+</html>
