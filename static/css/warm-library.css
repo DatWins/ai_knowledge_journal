@@ -1,0 +1,57 @@
+/* Useful Knowledge — Warm Library */
+
+html,
+body {
+	background-color: #F5F0E6 !important;
+	color: #493B2D;
+}
+
+.navbar-custom {
+	background-color: #F5F0E6 !important;
+	border-color: #D9CDBA !important;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav li a {
+	color: #493B2D !important;
+}
+
+.intro-header {
+	background-color: #F5F0E6 !important;
+	background-image: none !important;
+}
+
+.intro-header .page-heading h1,
+.intro-header .post-heading h1,
+.intro-header .site-heading h1 {
+	color: #493B2D !important;
+	font-size: 34px !important;
+	line-height: 1.25;
+}
+
+.intro-header .page-heading .subheading,
+.intro-header .post-heading .subheading,
+.intro-header .site-heading .subheading {
+	color: #6F6254 !important;
+}
+
+a {
+	color: #846B4A;
+}
+
+a:hover {
+	color: #493B2D;
+}
+
+footer {
+	background-color: #F5F0E6 !important;
+	border-color: #D9CDBA !important;
+}
+
+@media (max-width: 767px) {
+	.intro-header .page-heading h1,
+	.intro-header .post-heading h1,
+	.intro-header .site-heading h1 {
+		font-size: 28px !important;
+	}
+}

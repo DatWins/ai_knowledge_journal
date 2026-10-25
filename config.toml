@@ -1,12 +1,14 @@
 
-baseURL = "https://YOUR-SITE-NAME.netlify.app/"
-title = "My AI Knowledge Journal"
+baseURL = "https://useful-knowledge.netlify.app/"
+title = "Useful Knowledge"
 theme = "beautifulhugo"
 language = "en-us"
 enableRobotsTXT = true
 
 [params]
-  subtitle = "Useful links, practical tips, and lessons worth keeping."
+  hometitle = "Useful Knowledge"
+  subtitle = "A personal library of useful ideas."
+  customCSS = ["css/warm-library.css"]
   mainSections = ["posts"]
   showReadingTime = false
   showShare = false
