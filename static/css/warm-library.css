@@ -109,3 +109,10 @@ header.header-section .post-heading h1 {
     font-size: 24px !important;
   }
 }
+
+
+/* Make the Useful Knowledge site title bigger and bold */
+.navbar-custom .navbar-brand {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+}
