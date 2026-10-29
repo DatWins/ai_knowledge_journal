@@ -6,11 +6,11 @@
 /* Fonts: Playfair Display for titles, Cormorant Garamond for subtitles */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Playfair+Display:wght@600;700&display=swap");
 
-/* 1. Main colors: forest photo as the full page background, under a light cream wash */
+/* 1. Main colors: forest photo as the full page background, same dark wash as the header */
 html {
-  background-color: #F5F0E6 !important;
+  background-color: #2E251C !important;
   background-image:
-    linear-gradient(rgba(245, 240, 230, 0.82), rgba(245, 240, 230, 0.82)),
+    linear-gradient(rgba(35, 27, 19, 0.55), rgba(35, 27, 19, 0.78)),
     url("/img/forest-trail.jpg") !important;
   background-size: cover !important;
   background-position: center !important;
