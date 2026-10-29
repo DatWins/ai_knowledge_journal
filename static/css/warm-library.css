@@ -1,16 +1,25 @@
 
 /* =========================================
-   USEFUL KNOWLEDGE — WARM LIBRARY THEME
+   USEFUL KNOWLEDGE — DARK FOREST THEME (Option A)
    ========================================= */
 
 /* Fonts: Playfair Display for titles, Cormorant Garamond for subtitles */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Playfair+Display:wght@600;700&display=swap");
 
-/* 1. Main colors: forest photo as the full page background, same dark wash as the header */
+/* Palette
+   Overlay  rgba(20, 28, 20, 0.6)
+   Moss     #1E2A1F   (cards, nav bar, footer)
+   Border   #2F3D2F
+   Cream    #EFE8D6   (body text)
+   Gold     #D9B76A   (titles, rules)
+   Sage     #A8C49A   (links)
+*/
+
+/* 1. Main colors: forest photo as the full page background */
 html {
-  background-color: #2E251C !important;
+  background-color: #141C14 !important;
   background-image:
-    linear-gradient(rgba(35, 27, 19, 0.55), rgba(35, 27, 19, 0.78)),
+    linear-gradient(rgba(20, 28, 20, 0.6), rgba(20, 28, 20, 0.6)),
     url("../img/forest-trail.jpg") !important;
   background-size: cover !important;
   background-position: center !important;
@@ -21,18 +30,18 @@ html {
 body {
   background-color: transparent !important;
   background-image: none !important;
-  color: #493B2D;
+  color: #EFE8D6;
 }
 
 /* 2. Navigation bar */
 .navbar-custom {
-  background-color: #F5F0E6 !important;
-  border-color: #D9CDBA !important;
+  background-color: #1E2A1F !important;
+  border-color: #2F3D2F !important;
 }
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav li a {
-  color: #493B2D !important;
+  color: #EFE8D6 !important;
 }
 
 .navbar-custom .navbar-brand {
@@ -44,14 +53,14 @@ body {
 
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .nav li a:hover {
-  color: #846B4A !important;
+  color: #D9B76A !important;
 }
 
-/* 3. Page and post header background: forest trail photo with a dark wash */
+/* 3. Page and post header background: forest trail photo with the same dark wash */
 .intro-header {
-  background-color: #2E251C !important;
+  background-color: #141C14 !important;
   background-image:
-    linear-gradient(rgba(35, 27, 19, 0.55), rgba(35, 27, 19, 0.78)),
+    linear-gradient(rgba(20, 28, 20, 0.6), rgba(20, 28, 20, 0.6)),
     url("../img/forest-trail.jpg") !important;
   background-size: cover !important;
   background-position: center 45% !important;
@@ -120,26 +129,48 @@ body {
 
 /* 7. Links */
 a {
-  color: #846B4A;
+  color: #A8C49A;
 }
 
 a:hover,
 a:focus {
-  color: #493B2D;
+  color: #D9B76A;
 }
 
-/* 8. Content cards and panels */
+/* 8. Content cards and panels: deep moss with cream text */
 .post-preview,
 .well,
 .panel {
-  background-color: #FFFCF5;
-  border-color: #D9CDBA;
+  background-color: #1E2A1F;
+  border-color: #2F3D2F;
+  color: #EFE8D6;
+}
+
+.post-preview .post-title,
+.post-preview h2 a,
+.post-preview h2 {
+  color: #D9B76A !important;
+}
+
+.post-preview .post-subtitle,
+.post-preview .post-meta,
+.post-preview .post-meta a {
+  color: #BFB59C !important;
+}
+
+.post-preview a {
+  color: #A8C49A;
+}
+
+.post-preview a:hover {
+  color: #D9B76A;
 }
 
 /* 9. Footer */
 footer {
-  background-color: #F5F0E6 !important;
-  border-color: #D9CDBA !important;
+  background-color: #1E2A1F !important;
+  border-color: #2F3D2F !important;
+  color: #BFB59C;
 }
 
 /* 10. Mobile adjustments */
