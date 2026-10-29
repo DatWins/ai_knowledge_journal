@@ -11,7 +11,7 @@ html {
   background-color: #2E251C !important;
   background-image:
     linear-gradient(rgba(35, 27, 19, 0.55), rgba(35, 27, 19, 0.78)),
-    url("/img/forest-trail.jpg") !important;
+    url("../img/forest-trail.jpg") !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -52,7 +52,7 @@ body {
   background-color: #2E251C !important;
   background-image:
     linear-gradient(rgba(35, 27, 19, 0.55), rgba(35, 27, 19, 0.78)),
-    url("/img/forest-trail.jpg") !important;
+    url("../img/forest-trail.jpg") !important;
   background-size: cover !important;
   background-position: center 45% !important;
   background-repeat: no-repeat !important;
